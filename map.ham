@@ -1,0 +1,34 @@
+/*class*/class Map{
+	//Atribute
+	private Knoten startKnoten;
+	private Knoten aktuellerKnoten;
+   	//Konstruktor
+   	public Map(Knoten startKnoten){
+    	this.startKnoten = startKnoten;
+    	this.aktuellerKnoten = startKnoten;
+    }
+    // fügt einen Knoten zum aktuellen Knoten hinzu
+    public boolean addKnoten(Knoten knoten){
+    	if(aktuellerKnoten.addKnoten(knoten)){
+    		return true;
+    	}
+    	return false;
+    }
+    // der aktuelle Knoten wird zum seinem Vorgänger
+    public void knotenZurueck(){
+    	if(this.aktuellerKnoten.getVorgaenger() != null){
+    		this.aktuellerKnoten = this.aktuellerKnoten.getVorgaenger();
+    	}
+    }
+    // get- set Methoden
+    public void setAktuellerKnoten(Knoten knoten){
+    	this.aktuellerKnoten = knoten;
+    }
+    public Knoten getAktuellerKnoten(){
+    	return this.aktuellerKnoten;
+    }
+
+    public Knoten getStartKnoten(){
+    	return this.startKnoten;
+    }
+}

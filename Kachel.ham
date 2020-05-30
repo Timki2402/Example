@@ -1,0 +1,44 @@
+/*class*/class Kachel {
+	//Attribute
+    private boolean kachelFrei;
+   	private boolean korn;
+   	private int spalte;
+   	private int zeile;
+   
+   	//Konstruktor
+   	Kachel(boolean kachelFrei, int spalte, int zeile){
+   		this.kachelFrei = kachelFrei;
+   		this.spalte = spalte;
+   		this.zeile = zeile;
+   		korn = false;
+   	}
+   	// get- und setMethoden
+   	void setKorn(){
+   		korn = true;
+   	}
+   	public boolean getKachelFrei(){
+   		return this.kachelFrei;
+   	}
+   	public int getSpalte(){
+   		return this.spalte;
+   	}
+   	public int getZeile(){
+   		return this.zeile;
+   	}
+   	/*	Die Methode gibt true zurück, falls die parameter spalte und zeile mit  
+   	*	dem Objekt übereinstimmen.
+   	*
+   	*/
+   	public boolean vergleicheKoordinaten(int spalte, int zeile){
+   		if(this.spalte == spalte && this.zeile==zeile){
+   			return true;
+   		}
+   		return false;
+   	}
+	public String toString(){
+		
+		String s = Integer.toString(spalte);
+		s=s.concat(Integer.toString(zeile));
+		return s;
+	}
+}

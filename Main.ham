@@ -1,0 +1,48 @@
+/*object-oriented program*/// Testumgebung
+
+Hamster h = new Hamster(0,0,1,0);
+Map map = new Map(new Knoten(true, h.getSpalte(),h.getReihe()));
+void main() {	
+	vorwärts();
+    h.linksUm();
+    h.linksUm();
+	rückwärts();
+    h.linksUm();
+	vorwärts();
+   	h.linksUm();
+   	vorwärts();
+	h.linksUm();
+	vorwärts(3);
+	h.linksUm();
+	vorwärts(3);
+	h.linksUm();
+	h.linksUm();
+	rückwärts();
+	h.linksUm();
+	vorwärts(2);		
+	h.schreib(map.getStartKnoten().findeKnoten(13,5).toString());
+
+
+}
+void vorwärts(){
+    while(h.vornFrei()){
+    	h.vor();
+    	Knoten k = new Knoten(true, h.getSpalte(),h.getReihe());
+    	map.addKnoten(k);
+    	map.setAktuellerKnoten(k);
+    }	
+}
+void vorwärts(int schritte){
+	for(int i=0; i<schritte;i++){
+		h.vor();
+    	Knoten k = new Knoten(true, h.getSpalte(),h.getReihe());
+    	map.addKnoten(k);
+    	map.setAktuellerKnoten(k);
+	}
+}
+void rückwärts(){
+    while(h.vornFrei()){
+    	h.vor();
+    	map.knotenZurueck();
+    }	
+}
